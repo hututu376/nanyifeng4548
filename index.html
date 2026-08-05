@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南义峰是混蛋 · 官方认证</title>
+<style>
+  /* ========================================
+     Swiss International Style
+     International Typographic Style
+     ======================================== */
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --black: #1a1a1a;
+    --white: #fafafa;
+    --red: #e02020;
+    --gray-light: #e5e5e5;
+    --gray-mid: #999;
+    --gray-dark: #444;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Grid System ── */
+  .grid {
+    display: grid;
+    grid-template-columns:
+      1fr
+      minmax(0, 360px)
+      minmax(0, 640px)
+      minmax(0, 360px)
+      1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  /* ── Header Bar ── */
+  .header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 48px 0;
+    gap: 24px;
+  }
+
+  .header__rule {
+    flex: 1;
+    height: 1px;
+    background: var(--black);
+  }
+
+  .header__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+    white-space: nowrap;
+  }
+
+  /* ── Accent Block ── */
+  .accent-block {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 60px 48px;
+  }
+
+  .accent-block__bar {
+    width: 8px;
+    height: 120px;
+    background: var(--red);
+    margin-bottom: 32px;
+  }
+
+  .accent-block__headline {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+
+  .accent-block__headline em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  /* ── Main Content ── */
+  .main {
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 0;
+  }
+
+  /* ── Photo Frame ── */
+  .photo-frame {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--black);
+    overflow: hidden;
+    background: var(--gray-light);
+  }
+
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+  }
+
+  .photo-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.15) contrast(1.04);
+    transition: filter 0.3s ease;
+  }
+
+  .photo-frame:hover img {
+    filter: grayscale(0) contrast(1);
+  }
+
+  /* ── Caption ── */
+  .caption {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .caption__rule {
+    flex: 1;
+    height: 1px;
+    background: var(--black);
+  }
+
+  .caption__text {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-dark);
+    white-space: nowrap;
+  }
+
+  /* ── Statement ── */
+  .statement {
+    width: 100%;
+    max-width: 480px;
+    text-align: left;
+  }
+
+  .statement__title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .statement__sub {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--gray-dark);
+    max-width: 42ch;
+  }
+
+  /* ── Counter Section ── */
+  .counter-section {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Label row */
+  .counter-section__label-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .counter-section__dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .counter-section__label-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--gray-mid);
+  }
+
+  .counter-section__label-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-mid);
+  }
+
+  /* Button */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 20px 32px;
+    border: 2px solid var(--black);
+    background: var(--black);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      transform 0.10s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.24s cubic-bezier(0.22, 0.61, 0.36, 1);
+    z-index: 0;
+  }
+
+  .btn:hover {
+    border-color: var(--red);
+    color: var(--white);
+  }
+
+  .btn:hover::before {
+    transform: scaleX(1);
+  }
+
+  .btn:active {
+    transform: scale(0.975);
+  }
+
+  .btn__text,
+  .btn__icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn__icon {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover .btn__icon {
+    transform: rotate(-8deg) scale(1.15);
+  }
+
+  /* Counter display */
+  .counter-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 4px;
+  }
+
+  .counter-display__number {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--black);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.12s ease;
+  }
+
+  .counter-display__number.flash {
+    color: var(--red);
+  }
+
+  .counter-display__unit {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--gray-dark);
+    text-transform: uppercase;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    grid-column: 4;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 48px 60px 0;
+    gap: 28px;
+  }
+
+  .sidebar__num {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-mid);
+    letter-spacing: 0.06em;
+  }
+
+  .sidebar__line {
+    width: 1px;
+    height: 80px;
+    background: var(--gray-light);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 48px 28px;
+    gap: 24px;
+  }
+
+  .footer__text {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--gray-mid);
+    text-transform: uppercase;
+  }
+
+  .footer__rule {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-light);
+    margin-bottom: 5px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    .header {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 20px 24px 0;
+    }
+
+    .accent-block {
+      grid-column: 1;
+      grid-row: 2;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      gap: 20px;
+    }
+
+    .accent-block__bar {
+      width: 80px;
+      height: 6px;
+      margin: 0;
+    }
+
+    .accent-block__headline {
+      writing-mode: horizontal-tb;
+      font-size: 32px;
+    }
+
+    .main {
+      grid-column: 1;
+      grid-row: 3;
+      padding: 0 24px 40px;
+    }
+
+    .sidebar {
+      display: none;
+    }
+
+    .footer {
+      grid-column: 1;
+      grid-row: 4;
+      padding: 0 24px 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .statement__title {
+      font-size: 26px;
+    }
+
+    .counter-display__number {
+      font-size: 56px;
+    }
+
+    .btn {
+      padding: 16px 24px;
+      font-size: 15px;
+    }
+
+    .photo-frame {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="grid">
+
+    <!-- ═══ Header ═══ -->
+    <header class="header">
+      <span class="header__label">No. 001</span>
+      <span class="header__rule"></span>
+      <span class="header__label">Official Record</span>
+    </header>
+
+    <!-- ═══ Accent Block (Left) ═══ -->
+    <div class="accent-block">
+      <div class="accent-block__bar"></div>
+      <div class="accent-block__headline">
+        混蛋<br><em>认证</em>
+      </div>
+    </div>
+
+    <!-- ═══ Main Content ═══ -->
+    <main class="main">
+
+      <!-- Photo -->
+      <div class="photo-frame">
+        <img
+          src="nyf4548.jpg"
+          alt="南义峰 肖像"
+        >
+      </div>
+
+      <!-- Caption -->
+      <div class="caption">
+        <span class="caption__rule"></span>
+        <span class="caption__text">南义峰 · NAN YIFENG</span>
+        <span class="caption__rule"></span>
+      </div>
+
+      <!-- Statement -->
+      <div class="statement">
+        <h1 class="statement__title">
+          我们在此郑重声明
+        </h1>
+        <p class="statement__sub">
+          经过社会各界广泛评议与长期观察，一致认定该同志在"混蛋"这一
+          崇高荣誉称号的角逐中表现卓越，实至名归。每一次点击，都是
+          人民群众对其"混蛋指数"的权威认证。
+        </p>
+      </div>
+
+      <!-- Counter -->
+      <div class="counter-section">
+        <div class="counter-section__label-row">
+          <span class="counter-section__dot"></span>
+          <span class="counter-section__label-text">混蛋指数 · Húndàn Index</span>
+          <span class="counter-section__label-rule"></span>
+        </div>
+
+        <button class="btn" id="btnAdd" title="认证其为混蛋">
+          <span class="btn__text">认证混蛋</span>
+          <span class="btn__icon">👊</span>
+        </button>
+
+        <div class="counter-display">
+          <span class="counter-display__number" id="counter">0</span>
+          <span class="counter-display__unit">人次认证</span>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ═══ Sidebar (Right) ═══ -->
+    <aside class="sidebar">
+      <span class="sidebar__num">—</span>
+      <span class="sidebar__num">∞</span>
+      <span class="sidebar__line"></span>
+    </aside>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+      <span class="footer__text">© 2026 全民监督委员会</span>
+      <span class="footer__rule"></span>
+      <span class="footer__text">数据实时更新 · 不可篡改</span>
+    </footer>
+
+  </div>
+
+  <!-- ═══ Script ═══ -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'nyf_hundan_count';
+
+      const btn   = document.getElementById('btnAdd');
+      const count = document.getElementById('counter');
+
+      // Load persisted count
+      let n = 0;
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved !== null) {
+          const parsed = parseInt(saved, 10);
+          if (!isNaN(parsed) && parsed >= 0) n = parsed;
+        }
+      } catch (_) { /* localStorage unavailable */ }
+      count.textContent = n.toLocaleString('zh-CN');
+
+      btn.addEventListener('click', () => {
+        n += 1;
+        count.textContent = n.toLocaleString('zh-CN');
+
+        // Flash effect
+        count.classList.add('flash');
+        setTimeout(() => count.classList.remove('flash'), 120);
+
+        // Persist
+        try { localStorage.setItem(STORAGE_KEY, n.toString()); } catch (_) {}
+
+        // Haptic feedback if available
+        if (navigator.vibrate) {
+          navigator.vibrate(15);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
